@@ -4,3 +4,6 @@
 新增原始的nc文件、地面订正结果
 
 若订正结果存在部分时段的缺测，则执行merge_KJRHC_his.py
+
+二、首页机场站点检验
+若存在机场站检验的缺失，则执行mpi_airport_interp_his.py
