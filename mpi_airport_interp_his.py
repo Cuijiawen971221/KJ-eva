@@ -17,15 +17,21 @@ class mpiModel(BaseModel):
 
 
 if __name__ == "__main__":
-  # param get 
-
+  # param get
+  # """
+  # 用法: python mpi_airport_interp_his.py <模式> <开始时次> <结束时次>
+  # 时次格式: YYYYMMDDHH
+  # """
+    if len(sys.argv) != 4:
+        print(f"用法: python {os.path.basename(__file__)} <模式> <开始时次> <结束时次>")
+        print("时次格式: YYYYMMDDHH")
+        sys.exit(2)
     fcst = sys.argv[1]
-    print(fcst)
+    st_str_ = sys.argv[2]
+    ed_str_ = sys.argv[3]
+    print(fcst, st_str_, ed_str_)
   # global configure set
     conf = cf.pparms("./pathconfig.yaml").param
-    
-    st_str_ = '2026050500'
-    ed_str_ = '2026050600'
     
     st_t    = dt.datetime.strptime(st_str_,"%Y%m%d%H")
     ed_t    = dt.datetime.strptime(ed_str_,"%Y%m%d%H")
