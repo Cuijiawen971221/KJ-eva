@@ -407,8 +407,12 @@ def run_history(
 
 
 if __name__ == "__main__":
-    st_str_ = "2026042300"
-    ed_str_ = "2026042412"
+    if len(sys.argv) != 3:
+        print(f"用法: python {os.path.basename(__file__)} <开始时次> <结束时次>")
+        print("时次格式: YYYYMMDDHH (小时须为00或12)")
+        sys.exit(2)
+    st_str_ = sys.argv[1]
+    ed_str_ = sys.argv[2]
 
     conf = cf.pparms("./pathconfig.yaml").param
     
